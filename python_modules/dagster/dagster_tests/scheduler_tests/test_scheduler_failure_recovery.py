@@ -297,9 +297,8 @@ def test_failure_recovery_after_tick_success(external_repo_context, crash_locati
             assert scheduler_process.exitcode == 0
 
             assert instance.get_runs_count() == 1
-            validate_run_started(
-                instance.get_runs()[0], initial_datetime, pendulum.datetime(2019, 2, 26)
-            )
+            run = instance.get_runs()[0]
+            validate_run_started(run, initial_datetime, pendulum.datetime(2019, 2, 26))
 
             ticks = instance.get_schedule_ticks(external_schedule.get_external_origin_id())
             assert len(ticks) == 1
@@ -308,5 +307,5 @@ def test_failure_recovery_after_tick_success(external_repo_context, crash_locati
                 external_schedule,
                 initial_datetime,
                 ScheduleTickStatus.SUCCESS,
-                instance.get_runs()[0].run_id,
+                run.run_id,
             )
