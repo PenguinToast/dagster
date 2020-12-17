@@ -208,6 +208,12 @@ postgresql:
   # https://github.com/helm/charts/issues/12836#issuecomment-524552358
   postgresqlPassword: test
 
+  # Set this to use an external secret instead of creating one. The external secret must have the
+  # postgresql password under the key "postgresql-password".
+  # At least one of postgresqlPassword and postgresqlPasswordSecret must be specified.
+  # postgresqlPasswordSecret takes precedence over postgresqlPassword
+  postgresqlPasswordSecret: ""
+
   postgresqlDatabase: test
 
   service:

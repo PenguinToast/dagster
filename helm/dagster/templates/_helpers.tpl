@@ -155,6 +155,17 @@ See: https://github.com/helm/charts/blob/61c2cc0db49b06b948f90c8e44e9143d7bab430
 {{- end -}}
 
 {{/*
+Set postgres password secret
+*/}}
+{{- define "dagster.postgresql.passwordSecret" -}}
+{{- if .Values.postgresql.postgresqlPasswordSecret }}
+{{- .Values.postgresql.postgresqlPasswordSecret | quote -}}
+{{- else }}
+"{{- template "dagster.fullname" . -}}-postgresql-secret"
+{{- end -}}
+{{- end -}}
+
+{{/*
 Celery options
 */}}
 {{- define "dagster.celery.broker_url" -}}
@@ -182,7 +193,7 @@ This includes Dagit, Celery Workers, Run Master, and Step Execution containers.
 DAGSTER_HOME: "{{ .Values.dagster_home }}"
 DAGSTER_K8S_CELERY_BROKER: "{{ template "dagster.celery.broker_url" . }}"
 DAGSTER_K8S_CELERY_BACKEND: "{{ template "dagster.celery.backend_url" . }}"
-DAGSTER_K8S_PG_PASSWORD_SECRET: "{{ template "dagster.fullname" .}}-postgresql-secret"
+DAGSTER_K8S_PG_PASSWORD_SECRET: {{ include "dagster.postgresql.passwordSecret" . }}
 DAGSTER_K8S_INSTANCE_CONFIG_MAP: "{{ template "dagster.fullname" .}}-instance"
 DAGSTER_K8S_PIPELINE_RUN_NAMESPACE: "{{ .Release.Namespace }}"
 DAGSTER_K8S_PIPELINE_RUN_ENV_CONFIGMAP: "{{ template "dagster.fullname" . }}-pipeline-env"
