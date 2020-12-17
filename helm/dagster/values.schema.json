@@ -396,6 +396,10 @@
                     "title": "Postgresqlpassword",
                     "type": "string"
                 },
+                "postgresqlPasswordSecret": {
+                    "title": "Postgresqlpasswordsecret",
+                    "type": "string"
+                },
                 "postgresqlDatabase": {
                     "title": "Postgresqldatabase",
                     "type": "string"
@@ -409,9 +413,12 @@
                 "enabled",
                 "postgresqlHost",
                 "postgresqlUsername",
-                "postgresqlPassword",
                 "postgresqlDatabase",
                 "service"
+            ],
+            "oneOf": [
+                { "required": [ "postgresqlPassword" ] },
+                { "required": [ "postgresqlPasswordSecret" ] }
             ]
         },
         "RabbitMQConfiguration": {

@@ -64,7 +64,7 @@ spec:
             - name: DAGSTER_PG_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: "{{ template "dagster.fullname" $ }}-postgresql-secret"
+                  name: {{ include "dagster.postgresql.passwordSecret" $ }}
                   key: postgresql-password
             - name: DAGSTER_CURRENT_IMAGE
               value: "{{ $deployment.image.repository }}:{{ $deployment.image.tag }}"
