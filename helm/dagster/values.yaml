@@ -203,16 +203,17 @@ postgresql:
 
   postgresqlUsername: test
 
+  # Exactly one of postgresqlPassword and postgresqlPasswordSecret must be specified.
+  # postgresqlPasswordSecret takes precedence over postgresqlPassword.
+
   # Note when changing this password (e.g. in test) that credentials will
   # persist as long as the PVCs do -- see:
   # https://github.com/helm/charts/issues/12836#issuecomment-524552358
-  postgresqlPassword: test
+  # postgresqlPassword: test
 
   # Set this to use an external secret instead of creating one. The external secret must have the
   # postgresql password under the key "postgresql-password".
-  # At least one of postgresqlPassword and postgresqlPasswordSecret must be specified.
-  # postgresqlPasswordSecret takes precedence over postgresqlPassword
-  postgresqlPasswordSecret: ""
+  # postgresqlPasswordSecret: ""
 
   postgresqlDatabase: test
 
