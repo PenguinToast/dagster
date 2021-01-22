@@ -2,7 +2,25 @@ apiVersion: v1
 entries:
   dagster:
   - apiVersion: v1
-    created: "2021-01-14T10:51:01.500210546-08:00"
+    created: "2021-01-21T20:54:15.709060048-08:00"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.helm.sh/stable
+      version: 8.1.0
+    - condition: rabbitmq.enabled
+      name: rabbitmq
+      repository: https://charts.helm.sh/stable
+      version: 6.16.3
+    description: Dagster is a system for building modern data applications.
+    digest: f2bbc9e818d0c0f4ed899e4d61856106f9c0af060ac94cf9073cea521ade3657
+    icon: https://raw.githubusercontent.com/dagster-io/dagster/master/assets/Dagster.png
+    name: dagster
+    urls:
+    - release/dagster-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v1
+    created: "2021-01-21T20:54:15.702333788-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -20,7 +38,7 @@ entries:
     - release/dagster-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v1
-    created: "2021-01-14T10:51:01.493377136-08:00"
+    created: "2021-01-21T20:54:15.694396984-08:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -37,4 +55,4 @@ entries:
     urls:
     - release/dagster-0.1.0.tgz
     version: 0.1.0
-generated: "2021-01-14T10:51:01.486995518-08:00"
+generated: "2021-01-21T20:54:15.686690206-08:00"
