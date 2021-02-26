@@ -5,8 +5,5 @@ dependencies:
 - name: rabbitmq
   repository: https://charts.helm.sh/stable
   version: 6.16.3
-- name: redis
-  repository: https://charts.bitnami.com/bitnami
-  version: 6.0.10
-digest: sha256:74b7c4071b7073e589fae7f69d3c90d4e98fc0320553d64169442cd3fca32408
-generated: "2020-09-25T01:43:30.881469-04:00"
+digest: sha256:c4038c8b3bdf0da3e2012a216b6f6598f92c7ccf1a49f167a6d9e1ba0f92e6d3
+generated: "2021-02-26T15:12:28.877804655-08:00"
